@@ -10,6 +10,7 @@ config = ConfigParser()
 config.read(config_file)
 api_key = config['api_key']['key']
 
+#Gets the weather 
 def get_weather(city):
     result = requests.get(url.format(city, api_key))
     if result:
@@ -27,7 +28,7 @@ def get_weather(city):
 
     else:
         return None
-
+#The search feature to find the city that is being searched
 def search():
     city = city_text.get()
     weather = get_weather(city)
@@ -39,7 +40,7 @@ def search():
     else:
         messagebox.showinfo("Error", "City not found{}".format(city))
 
-
+#functions
 app = Tk()
 app.title("Weather App")
 app.geometry("700x350")
